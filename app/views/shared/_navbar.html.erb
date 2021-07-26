@@ -1,0 +1,20 @@
+<nav class="navbar has-shadow has-background-grey is-shadowless" role="navigation" aria-label="main navigation">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if user_signed_in? %>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <%= link_to current_user.email, root_path, class: 'navbar-item' %>
+              <%= link_to "個人資料", edit_user_registration_path, class: 'button is-dark' %> 
+              <%= link_to "登出", destroy_user_session_path, method: :delete, class: 'button is-light' %>
+            </div>
+          <% else %>
+            <%= link_to "註冊", new_user_registration_path, class: 'button is-dark' %>
+            <%= link_to "登入", new_user_session_path, class: 'button is-light' %>
+          <% end %>          
+        </div>
+      </div>
+    </div>
+  </div>
+</nav> 
